@@ -4,9 +4,9 @@ import Header from "@/components/header";
 const page = () => {
     return (
         <>
-            <div className={'bg-secondary flex'}>
+            <div className={'bg-secondary flex max-w-[2000px] mx-auto w-11/12'}>
                 <Sidebar/>
-                <div className={'w-full h-screen pl-10 pt-10 pr-2'}>
+                <div className={'w-4/5 h-screen pl-10 pt-10 pr-2'}>
                     <Header/>
                     <div className={'py-4 text-white'}>
                         <h1 className={'text-xl font-bold'}>Top User Prompts</h1>

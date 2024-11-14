@@ -16,7 +16,7 @@ const Sidebar = () => {
     ];
 
     return (
-        <div className="w-min-[250px] w-[300px] h-screen bg-primary pl-5 pt-10">
+        <div className="min-w-[250px] w-1/5 h-screen bg-primary pl-5 pt-10">
             <Image src="/logo.svg" alt="logo" height={100} width={150} />
             <div className="py-10 text-white h-4/5">
                 {navItems.map((item, index) => (
