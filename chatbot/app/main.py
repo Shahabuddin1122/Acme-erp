@@ -44,14 +44,26 @@ class MainApp:
         return response
 
     def handle_message(self, message, chat_id):
-        # print(f"Received message: {message}")
-        if message.lower() in ['/start', 'hello', 'hi', 'greetings']:
+        if message.lower() == "/survey":
+            self.start_survey(chat_id)
+        elif message.lower() in ['/start', 'hello', 'hi', 'greetings']:
             response = self.get_intro_response()
+            self.telegram.send_message(chat_id, response)
         else:
             response = self.chain.get_response(message, chat_id)
-        # print(f"Generated response: {response}")
+            self.telegram.send_message(chat_id, response)
 
-        self.telegram.send_message(chat_id, response)
+    def start_survey(self, chat_id):
+        survey_questions = [
+            {
+                "question": "How satisfied are you with the HR bot?",
+                "options": ["Very satisfied", "Satisfied", "Neutral", "Unsatisfied", "Very unsatisfied"]
+            }
+        ]
+        for survey in survey_questions:
+            question = survey["question"]
+            options = survey["options"]
+            self.telegram.send_poll(chat_id, question, options)
 
     def run(self):
         print("Starting the bot...")
