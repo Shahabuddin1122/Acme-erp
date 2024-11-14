@@ -56,7 +56,7 @@ class MainApp:
             self.telegram.send_message(chat_id, response)
 
     def start_survey(self, chat_id):
-        survey_questions = get_survey_data(self.db)
+        survey_questions = get_survey_data()
         for survey in survey_questions:
             question = survey["question"]
             options = survey["options"]

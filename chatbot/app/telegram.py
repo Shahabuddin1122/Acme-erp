@@ -4,6 +4,8 @@ import time
 import dotenv
 import telebot
 
+from db_initialize import post_survey_response
+
 dotenv.load_dotenv()
 
 
@@ -34,8 +36,9 @@ class Telegram:
                 if pole_answer["pole_id"] == poll_id:
                     selected_option = pole_answer["options"][option_index]
                     pole_answer["selected_option"] = selected_option
-
-            print(self.poll_answers)
+            for pole_answer in self.poll_answers:
+                if pole_answer["selected_option"] != "":
+                    post_survey_response(pole_answer)
 
         run_polling()
 

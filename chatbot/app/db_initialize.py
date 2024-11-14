@@ -3,8 +3,11 @@ import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
+db = None
+
 
 def connect_to_mongodb():
+    global db
     load_dotenv()
 
     mongo_connection_string = os.getenv("MONGO_CONNECTION")
@@ -22,7 +25,7 @@ def connect_to_mongodb():
         raise
 
 
-def store_survey_data(db):
+def store_survey_data():
     try:
         survey_collection = db["survey_data"]
         survey_questions = [
@@ -45,7 +48,32 @@ def store_survey_data(db):
         print("Failed to insert survey data:", e)
 
 
-def get_survey_data(db):
+def get_survey_data():
     collection = db["survey_data"]
     questions = list(collection.find({}, {"_id": 0}))
     return questions
+
+
+def post_survey_response(response):
+    collection = db["survey_response"]
+    question = response['question']
+    user_name = response['user_name']
+    existing_response = collection.find_one({"question": question, "user_name": user_name})
+    if existing_response:
+        print(f"User {user_name} has already responded to this question.")
+        return False
+
+    new_response = {
+        "question": question,
+        "user_name": user_name,
+        "pole_id": response['pole_id'],
+        "user_id": response['user_id'],
+        "selected_option": response['selected_option'],
+    }
+    result = collection.insert_one(new_response)
+    if result.acknowledged:
+        print(f"Response from {user_name} recorded successfully.")
+        return True
+    else:
+        print("Failed to record the response. Please try again.")
+        return False
