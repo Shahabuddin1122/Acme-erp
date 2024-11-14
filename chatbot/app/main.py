@@ -1,5 +1,6 @@
 import random
 
+from db_initialize import *
 from telegram import Telegram
 from chain import Chain
 
@@ -8,6 +9,7 @@ class MainApp:
     def __init__(self):
         self.telegram = Telegram(self.handle_message)
         self.chain = Chain()
+        self.db = connect_to_mongodb()
         self.intro_templates = [
             "I am Acme Technology Ltd's HR chatbot. Here at the HR Knowledge Hub, I can assist you with a wide range "
             "of topics related to:",
@@ -54,12 +56,7 @@ class MainApp:
             self.telegram.send_message(chat_id, response)
 
     def start_survey(self, chat_id):
-        survey_questions = [
-            {
-                "question": "How satisfied are you with the HR bot?",
-                "options": ["Very satisfied", "Satisfied", "Neutral", "Unsatisfied", "Very unsatisfied"]
-            }
-        ]
+        survey_questions = get_survey_data(self.db)
         for survey in survey_questions:
             question = survey["question"]
             options = survey["options"]
