@@ -4,7 +4,7 @@ import time
 import dotenv
 import telebot
 
-from db_initialize import post_survey_response
+from db_initialize import post_survey_response, store_top_user
 
 dotenv.load_dotenv()
 
@@ -26,6 +26,7 @@ class Telegram:
 
         @self.bot.message_handler(func=lambda message: True)
         def handle_message(message):
+            store_top_user(message)
             self.message_handler(message.text, message.chat.id)
 
         @self.bot.poll_answer_handler()
