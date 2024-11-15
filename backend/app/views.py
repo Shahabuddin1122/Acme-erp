@@ -61,3 +61,15 @@ def get_poles(request):
         return Response({"poles": processed_poles}, status=status.HTTP_200_OK)
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['GET'])
+def get_top_queries(request):
+    try:
+        categories = list(db.categories.find({}))
+        for category in categories:
+            category["_id"] = str(category["_id"])
+        top_categories = sorted(categories, key=lambda x: x["count"], reverse=True)[:5]
+        return Response(top_categories, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
