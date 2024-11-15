@@ -4,4 +4,5 @@ from app import views
 
 urlpatterns = [
     path('create-pole', views.create_pole),
+    path('get-pole', views.get_poles)
 ]

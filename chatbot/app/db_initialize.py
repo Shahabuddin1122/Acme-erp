@@ -145,6 +145,7 @@ def post_survey_response(response):
         "user_name": user_name,
         "pole_id": response['pole_id'],
         "user_id": response['user_id'],
+        "options": response['options'],
         "selected_option": response['selected_option'],
     }
     result = collection.insert_one(new_response)
