@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const NavElement = ({ icon, text, isActive, route }) => {
+const NavElement = ({ icon, text, isActive, route }:{icon:string, text:string, isActive:boolean, route:string}) => {
     return (
         <Link href={route}>
             <div

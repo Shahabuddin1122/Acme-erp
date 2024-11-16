@@ -1,12 +1,21 @@
 'use client'
 
 import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import {
+    Chart as ChartJS,
+    ArcElement,
+    Tooltip,
+    Legend,
+    ChartOptions,
+} from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
-    const data = {
+    const data: {
+        datasets: { backgroundColor: string[]; data: number[]; hoverBackgroundColor: string[]; label: string }[];
+        labels: string[]
+    } = {
         labels: ['No', 'Yes', 'Don\'t know'],
         datasets: [
             {
@@ -18,7 +27,7 @@ const PieChart = () => {
         ],
     };
 
-    const options = {
+    const options: ChartOptions<'pie'> = {
         responsive: true,
         plugins: {
             legend: {

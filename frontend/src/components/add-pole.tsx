@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark,faPlus } from '@fortawesome/free-solid-svg-icons';
 import Button from "@/components/Button";
+import Image from "next/image";
 
 const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
     const [options, setOptions] = useState<string[]>([]);
@@ -30,10 +29,9 @@ const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
             <div className="fixed inset-0 bg-white opacity-30"></div>
             <div className="fixed inset-0 flex items-center justify-center">
                 <div className="w-[800px] bg-primary rounded-xl relative">
-                    <FontAwesomeIcon
-                        icon={faXmark}
-                        size="2x"
-                        color={"white"}
+                    <Image
+                        src={'/cross.svg'}
+                        alt={'cross'} height={10} width={20}
                         className="absolute top-2 right-2 cursor-pointer"
                         onClick={toggleModel}
                     />
@@ -52,10 +50,9 @@ const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
                                         readOnly
                                         className="px-4 py-2 pr-2 rounded-md w-full text-black"
                                     />
-                                    <FontAwesomeIcon
-                                        icon={faXmark}
-                                        size="lg"
-                                        color="red"
+                                    <Image
+                                        src={'/cross.svg'}
+                                        alt={'cross'} height={10} width={20}
                                         className="cursor-pointer ml-2 absolute right-2"
                                         onClick={() => handleDeleteOption(index)}
                                     />
@@ -71,7 +68,7 @@ const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
                             <div
                                 onClick={handleAddOption}
                                 className={'w-36 h-12 bg-white rounded-md flex justify-center items-center'}>
-                                <FontAwesomeIcon icon={faPlus} color={'black'} size={"2x"}/>
+                                <p className={"font-bold text-black"}>Add</p>
                             </div>
                         </div>
                         <div className={'flex gap-x-2 absolute right-4 bottom-5'}>
