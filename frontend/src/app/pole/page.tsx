@@ -8,10 +8,11 @@ import AddPole from "@/components/add-pole";
 import useSWR from "swr";
 import {fetcher} from "@/utils/fetcher";
 import PieChartComponent from "@/components/pie-chart-component";
+import {baseUrl} from "@/utils/constant";
 
 const Page = () => {
     const [addPoleModel, setAddPoleModel] = useState<boolean>(false)
-    const { data, isLoading, error} = useSWR<SurveyData>("http://localhost:8000/manager/get-pole", fetcher, { refreshInterval: 1000 })
+    const { data, isLoading, error} = useSWR<SurveyData>(`${baseUrl}/manager/get-pole`, fetcher, { refreshInterval: 1000 })
 
     return (
         <>
@@ -23,6 +24,7 @@ const Page = () => {
                     <div className={'py-4'}>
                         <Button text={'Add a pole'} onClick={()=> setAddPoleModel(true)}/>
                         <div className={'py-4 flex flex-wrap gap-4'}>
+                            {isLoading && <p className={"text-center font-bold text-2xl text-white"}>Data Loading.......</p>}
                             {!isLoading && !error && data && (data || []).map((value, index)=>(
                                 <PieChartComponent key={index} data={value}/>
                             ))}

@@ -4,10 +4,11 @@ import Sidebar from "@/components/sidebar";
 import Header from "@/components/header";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
+import {baseUrl} from "@/utils/constant";
 
 
 const Page = () => {
-    const { data, error, isLoading } = useSWR<QueriesType[]>("http://localhost:8000/manager/get-top-queries", fetcher, { refreshInterval: 1000 });
+    const { data, error, isLoading } = useSWR<QueriesType[]>(`${baseUrl}/manager/get-top-queries`, fetcher, { refreshInterval: 1000 });
 
 
     return (

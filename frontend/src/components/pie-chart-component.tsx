@@ -5,9 +5,6 @@ const PieChartComponent = ({data}: {data: QuestionData}) => {
     const optionsArray = data.options;
     const voteCountsArray = optionsArray.map(option => data.option_counts[option]);
 
-    console.log("Options:", optionsArray);
-    console.log("Vote Counts:", voteCountsArray);
-
     return (
         <>
             <div className={'w-[500px] bg-primary rounded-xl relative'}>

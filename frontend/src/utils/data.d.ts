@@ -16,3 +16,8 @@ interface QuestionData {
 }
 
 type SurveyData = QuestionData[];
+
+interface Pole {
+    question: string;
+    options: string[];
+}
