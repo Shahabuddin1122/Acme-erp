@@ -85,16 +85,6 @@ CORS_ALLOW_CREDENTIALS = True
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 MONGO_CONNECTION = os.getenv("MONGO_CONNECTION")
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'ACME_ERP',
-        'CLIENT': {
-            'host': MONGO_CONNECTION,
-        }
-    }
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
