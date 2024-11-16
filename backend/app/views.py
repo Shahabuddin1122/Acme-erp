@@ -58,7 +58,7 @@ def get_poles(request):
                 "option_counts": option_counts
             })
 
-        return Response({"poles": processed_poles}, status=status.HTTP_200_OK)
+        return Response(processed_poles, status=status.HTTP_200_OK)
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 

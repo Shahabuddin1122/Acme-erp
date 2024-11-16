@@ -3,13 +3,16 @@
 import Sidebar from "@/components/sidebar";
 import Header from "@/components/header";
 import Button from "@/components/Button";
-import PieChart from "@/components/piechart";
-import Image from "next/image";
 import {useState} from "react";
 import AddPole from "@/components/add-pole";
+import useSWR from "swr";
+import {fetcher} from "@/utils/fetcher";
+import PieChartComponent from "@/components/pie-chart-component";
 
 const Page = () => {
     const [addPoleModel, setAddPoleModel] = useState<boolean>(false)
+    const { data, isLoading, error} = useSWR<SurveyData>("http://localhost:8000/manager/get-pole", fetcher, { refreshInterval: 1000 })
+
     return (
         <>
             <div className={'bg-secondary flex max-w-[2000px] mx-auto w-11/12'}>
@@ -20,30 +23,9 @@ const Page = () => {
                     <div className={'py-4'}>
                         <Button text={'Add a pole'} onClick={()=> setAddPoleModel(true)}/>
                         <div className={'py-4 flex flex-wrap gap-4'}>
-                            <div className={'w-[500px] bg-primary rounded-xl flex flex-col items-end'}>
-                                <Image src={'/cross.svg'} alt={'cross'} height={10} width={20} className={'m-2'}/>
-                                <div className={'w-4/5 flex justify-center'}>
-                                    <PieChart/>
-                                </div>
-                            </div>
-                            <div className={'w-[500px] bg-primary rounded-xl flex flex-col items-end'}>
-                                <Image src={'/cross.svg'} alt={'cross'} height={10} width={20} className={'m-2'}/>
-                                <div className={'w-4/5 flex justify-center'}>
-                                    <PieChart/>
-                                </div>
-                            </div>
-                            <div className={'w-[500px] bg-primary rounded-xl flex flex-col items-end'}>
-                                <Image src={'/cross.svg'} alt={'cross'} height={10} width={20} className={'m-2'}/>
-                                <div className={'w-4/5 flex justify-center'}>
-                                    <PieChart/>
-                                </div>
-                            </div>
-                            <div className={'w-[500px] bg-primary rounded-xl flex flex-col items-end'}>
-                                <Image src={'/cross.svg'} alt={'cross'} height={10} width={20} className={'m-2'}/>
-                                <div className={'w-4/5 flex justify-center'}>
-                                    <PieChart/>
-                                </div>
-                            </div>
+                            {!isLoading && !error && data && (data || []).map((value, index)=>(
+                                <PieChartComponent key={index} data={value}/>
+                            ))}
                         </div>
                     </div>
                 </div>

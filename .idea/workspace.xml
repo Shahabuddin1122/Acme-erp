@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3bb8faaa-401a-4764-8440-7ec67c2a0bb0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat-overview/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat-overview/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/pole/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/pole/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/add-pole.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/add-pole.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/piechart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/piechart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/data.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/data.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -79,7 +82,7 @@
       <workItem from="1731559507125" duration="7502000" />
       <workItem from="1731568069031" duration="395000" />
       <workItem from="1731739856720" duration="7130000" />
-      <workItem from="1731772204756" duration="2990000" />
+      <workItem from="1731772204756" duration="9545000" />
     </task>
     <servers />
   </component>

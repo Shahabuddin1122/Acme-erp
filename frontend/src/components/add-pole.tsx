@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Button from "@/components/Button";
-import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
     const [options, setOptions] = useState<string[]>([]);
@@ -26,12 +27,13 @@ const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
 
     return (
         <>
-            <div className="fixed inset-0 bg-white opacity-30"></div>
-            <div className="fixed inset-0 flex items-center justify-center">
+            <div className="fixed inset-0 bg-white opacity-30 z-10"></div>
+            <div className="fixed inset-0 flex items-center justify-center z-20">
                 <div className="w-[800px] bg-primary rounded-xl relative">
-                    <Image
-                        src={'/cross.svg'}
-                        alt={'cross'} height={10} width={20}
+                    <FontAwesomeIcon
+                        icon={faXmark}
+                        size="2x"
+                        color="white"
                         className="absolute top-2 right-2 cursor-pointer"
                         onClick={toggleModel}
                     />
@@ -50,10 +52,11 @@ const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
                                         readOnly
                                         className="px-4 py-2 pr-2 rounded-md w-full text-black"
                                     />
-                                    <Image
-                                        src={'/cross.svg'}
-                                        alt={'cross'} height={10} width={20}
-                                        className="cursor-pointer ml-2 absolute right-2"
+                                    <FontAwesomeIcon
+                                        icon={faXmark}
+                                        size="lg"
+                                        color="red"
+                                        className="cursor-pointer ml-2"
                                         onClick={() => handleDeleteOption(index)}
                                     />
                                 </div>
@@ -68,7 +71,7 @@ const AddPole = ({toggleModel}:{toggleModel:()=> void}) => {
                             <div
                                 onClick={handleAddOption}
                                 className={'w-36 h-12 bg-white rounded-md flex justify-center items-center'}>
-                                <p className={"font-bold text-black"}>Add</p>
+                                <FontAwesomeIcon icon={faPlus} color="black" size="xl" />
                             </div>
                         </div>
                         <div className={'flex gap-x-2 absolute right-4 bottom-5'}>
