@@ -81,6 +81,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
+ALLOWED_HOSTS = ['acme-erp.onrender.com', '127.0.0.1', 'localhost']
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 MONGO_CONNECTION = os.getenv("MONGO_CONNECTION")
