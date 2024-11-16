@@ -1,7 +1,16 @@
+
 import Sidebar from "@/components/sidebar";
 import Header from "@/components/header";
+import axios from "axios";
 
 const page = () => {
+    axios.get('http://localhost:8000/manager/get-top-queries')
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     return (
         <>
             <div className={'bg-secondary flex max-w-[2000px] mx-auto w-11/12'}>

@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3bb8faaa-401a-4764-8440-7ec67c2a0bb0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/add-pole.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/add-pole.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/nav-element.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav-element.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/piechart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/piechart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat-overview/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat-overview/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
       <workItem from="1731496636825" duration="18448000" />
       <workItem from="1731559507125" duration="7502000" />
       <workItem from="1731568069031" duration="395000" />
-      <workItem from="1731739856720" duration="1906000" />
+      <workItem from="1731739856720" duration="3527000" />
     </task>
     <servers />
   </component>
