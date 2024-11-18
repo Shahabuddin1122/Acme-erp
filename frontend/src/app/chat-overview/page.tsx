@@ -12,10 +12,15 @@ const Page = () => {
 
 
     return (
-        <div className={'bg-secondary flex max-w-[2000px] mx-auto w-11/12'}>
+        <div className={'flex bg-secondary'}>
             <Sidebar />
-            <div className={'w-4/5 h-screen pl-10 pt-10 pr-2'}>
-                <Header />
+            <div className="
+                flex-1 p-10
+                ml-0 md:ml-64 lg:ml-64 xl:ml-72
+                transition-all duration-300
+                min-h-screen
+                ">
+                <Header/>
                 <div className={'py-4 text-white'}>
                     <h1 className={'text-xl font-bold'}>Top User Prompts</h1>
                     <div className="overflow-x-auto py-4">
