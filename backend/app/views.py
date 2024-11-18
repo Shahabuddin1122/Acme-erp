@@ -35,18 +35,23 @@ def create_pole(request):
 @api_view(['GET'])
 def get_poles(request):
     try:
-        poles = list(db.survey_response.find({}))
-        question_data = defaultdict(lambda: {"options": [], "option_counts": Counter()})
+        poles_response = list(db.survey_response.find({}))
+        poles = list(db.survey_data.find({}))
 
-        for pole in poles:
-            question = pole["question"]
-            selected_option = pole["selected_option"]
-            options = pole["options"]
+        question_data = {
+            pole["question"]: {
+                "options": pole["options"],
+                "option_counts": Counter({option: 0 for option in pole["options"]})
+            }
+            for pole in poles
+        }
 
-            if not question_data[question]["options"]:
-                question_data[question]["options"] = options
+        for pole_response in poles_response:
+            question = pole_response["question"]
+            selected_option = pole_response["selected_option"]
 
-            question_data[question]["option_counts"][selected_option] += 1
+            if question in question_data:
+                question_data[question]["option_counts"][selected_option] += 1
 
         processed_poles = []
         for question, data in question_data.items():
@@ -71,5 +76,23 @@ def get_top_queries(request):
             category["_id"] = str(category["_id"])
         top_categories = sorted(categories, key=lambda x: x["count"], reverse=True)[:5]
         return Response(top_categories, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['DELETE'])
+def delete_pole(request):
+    try:
+        question = request.data.get('question')
+        pole_response_deleted = db.survey_response.delete_many({"question": question})
+        poles_deleted = db.survey_data.delete_many({"question": question})
+
+        if pole_response_deleted.deleted_count == 0 and poles_deleted.deleted_count == 0:
+            return Response({"message": "No records found to delete."}, status=status.HTTP_404_NOT_FOUND)
+
+        return Response(
+            {"message": f"Deleted {pole_response_deleted.deleted_count} from survey_response and {poles_deleted.deleted_count} from survey_data."},
+            status=status.HTTP_200_OK
+        )
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
