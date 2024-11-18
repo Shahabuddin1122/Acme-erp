@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3bb8faaa-401a-4764-8440-7ec67c2a0bb0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pie-chart-component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pie-chart-component.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +80,7 @@
       <workItem from="1731739856720" duration="7130000" />
       <workItem from="1731772204756" duration="14378000" />
       <workItem from="1731913217016" duration="13888000" />
+      <workItem from="1731949981052" duration="2572000" />
     </task>
     <servers />
   </component>
