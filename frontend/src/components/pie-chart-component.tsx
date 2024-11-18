@@ -7,7 +7,7 @@ const PieChartComponent = ({data}: {data: QuestionData}) => {
 
     return (
         <>
-            <div className={'w-2/5 bg-primary rounded-xl relative'}>
+            <div className={'lg:w-2/5 w-full bg-primary rounded-xl relative'}>
                 <p className={'text-white font-semibold m-4 w-5/6'}>{data.question}</p>
                 <Image src={'/cross.svg'} alt={'cross'} height={10} width={20} className={'absolute top-2 right-2'}/>
                 <div className={'w-full flex justify-center'}>
